@@ -20,7 +20,7 @@ public class Start extends AppCompatActivity {
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Start.this, Start.class);
+                Intent intent = new Intent(Start.this, DangNhap.class);
                 startActivity(intent);
                 finish();
             }
