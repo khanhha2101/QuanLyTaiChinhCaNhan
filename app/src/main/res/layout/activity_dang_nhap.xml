@@ -6,59 +6,72 @@
     android:layout_height="match_parent"
     tools:context=".DangNhap">
 
-    <ImageView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/bgstart"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <!--    <ImageView-->
+    <!--        android:layout_width="415dp"-->
+    <!--        android:layout_height="739dp"-->
+    <!--        android:src="@drawable/bgstart"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="1050dp"
+        android:layout_height="550dp"
+        android:background="@drawable/bg_vang_tron"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"></androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical"
-        android:weightSum="5"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/logoname"></ImageView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Đăng nhập"
                 android:textColor="@color/white"
-                android:textSize="48dp"
-                android:text="Đăng nhập"></TextView>
+                android:textSize="48dp"></TextView>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
+            android:layout_weight="1"
             android:gravity="center"
-            android:layout_weight="1">
+            android:orientation="vertical">
 
             <EditText
                 android:layout_width="320dp"
                 android:layout_height="50dp"
-                android:hint="Tên đăng nhập"
                 android:background="@drawable/edt_trang"
+                android:hint="Tên đăng nhập"
                 android:minHeight="48dp"></EditText>
 
             <EditText
@@ -71,25 +84,27 @@
                 android:inputType="textPassword"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"></LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center">
+
             <Button
                 android:layout_width="250dp"
                 android:layout_height="48dp"
-                android:text="Đăng nhập"
-                android:textSize="24dp"
-                android:textColor="@color/white"
                 android:background="@drawable/btn_vang"
-                android:textAllCaps="false"></Button>
+                android:text="Đăng nhập"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="24dp"></Button>
         </LinearLayout>
-
 
 
     </LinearLayout>
