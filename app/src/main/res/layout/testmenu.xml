@@ -44,7 +44,7 @@
                 android:paddingBottom="5dp">
 
                 <LinearLayout
-                    android:id="@+id/btn_home"
+                    android:id="@+id/homeBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -58,7 +58,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_thongke"
+                    android:id="@+id/favBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -88,7 +88,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_lichsu"
+                    android:id="@+id/notBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -102,7 +102,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btn_caidat"
+                    android:id="@+id/proBtn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -117,7 +117,7 @@
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btn_add"
+            android:id="@+id/card_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="3dp"
