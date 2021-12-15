@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    tools:context=".TrangChu">
+    tools:context=".TrangChu1">
 
     <RelativeLayout
         android:id="@+id/header_trangchu"
@@ -132,17 +132,22 @@
             android:text="Hôm nay"
             android:textSize="16dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_danhsach"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/img_rong"
+            android:layout_width="161dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="55dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp" />
-
+            android:layout_below="@+id/txt_now"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="57dp"
+            android:src="@drawable/remove" />
+        <TextView
+            android:id="@+id/txt_thongbao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Hôm nay bạn chưa thêm dữ liệu"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/img_rong"/>
     </RelativeLayout>
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
@@ -251,6 +256,4 @@
             app:layout_anchor="@id/app_bar"
             app:maxImageSize="30dp" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 </RelativeLayout>
