@@ -9,7 +9,6 @@ import android.os.Bundle;
 import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.adapter.DanhmucAdapter;
 import com.example.quanlytaichinhcanhan.api.ApiService;
-import com.example.quanlytaichinhcanhan.interfaces.ClickItem;
 import com.example.quanlytaichinhcanhan.model.danhmuc;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class DanhMuc extends AppCompatActivity implements ClickItem{
+public class DanhMuc extends AppCompatActivity {
 
     RecyclerView rcv_dm;
 
@@ -51,7 +50,7 @@ public class DanhMuc extends AppCompatActivity implements ClickItem{
 
     public void LoadDataRecyclerView(ArrayList<danhmuc> list) {
 
-        danhmucAdapter = new DanhmucAdapter(this, this);
+        danhmucAdapter = new DanhmucAdapter(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         danhmucAdapter.setData(list);
         rcv_dm.setLayoutManager(linearLayoutManager);

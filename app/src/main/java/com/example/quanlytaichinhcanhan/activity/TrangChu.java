@@ -7,14 +7,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quanlytaichinhcanhan.R;
+import com.example.quanlytaichinhcanhan.adapter.DanhmucAdapter;
+import com.example.quanlytaichinhcanhan.adapter.HoatDongAdapter;
+import com.example.quanlytaichinhcanhan.api.ApiService;
+import com.example.quanlytaichinhcanhan.model.danhmuc;
+import com.example.quanlytaichinhcanhan.model.hoatdong;
 import com.example.quanlytaichinhcanhan.model.nguoidung;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrangChu extends AppCompatActivity {
 
     TextView txt_name;
+    RecyclerView recyclerview_danhsach;
+    HoatDongAdapter hoatDongAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,14 +37,17 @@ public class TrangChu extends AppCompatActivity {
 
         AnhXa();
 
-        nhanDuLieu();
+//        nhanDuLieu();
 
         bottomNavigation();
+        GetDataRecyclerView();
 
     }
 
     public void AnhXa(){
+
         txt_name = findViewById(R.id.txt_name);
+        recyclerview_danhsach = findViewById(R.id.recyclerview_danhsach);
     }
 
     public void nhanDuLieu() {
@@ -85,5 +103,30 @@ public class TrangChu extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void GetDataRecyclerView() {
+        ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
+            @Override
+            public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
+                ArrayList<hoatdong> list = response.body();
+                LoadDataRecyclerView(list);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<hoatdong>> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    public void LoadDataRecyclerView(ArrayList<hoatdong> list) {
+
+        hoatDongAdapter = new HoatDongAdapter(this);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        hoatDongAdapter.setData(list);
+        recyclerview_danhsach.setLayoutManager(linearLayoutManager);
+        recyclerview_danhsach.setAdapter(hoatDongAdapter);
     }
 }

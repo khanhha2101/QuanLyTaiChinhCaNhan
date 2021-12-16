@@ -4,27 +4,28 @@ public class hoatdong {
     private int idhd;
     private int idnd;
     private int iddm;
+    private String tendm;
+    private String image;
+    private int phanloai;
     private float sotien;
     private String ghichu;
     private int ngay;
     private int thang;
     private int nam;
-    private String tendm;
-    private String image;
-    private int phanloai;
 
-    public hoatdong(int idhd, int idnd, int iddm, float sotien, String ghichu, int ngay, int thang, int nam, String tendm, String image, int phanloai) {
+
+    public hoatdong(int idhd, int idnd, int iddm, String tendm, String image, int phanloai, float sotien, String ghichu, int ngay, int thang, int nam) {
         this.idhd = idhd;
         this.idnd = idnd;
         this.iddm = iddm;
+        this.tendm = tendm;
+        this.image = image;
+        this.phanloai = phanloai;
         this.sotien = sotien;
         this.ghichu = ghichu;
         this.ngay = ngay;
         this.thang = thang;
         this.nam = nam;
-        this.tendm = tendm;
-        this.image = image;
-        this.phanloai = phanloai;
     }
 
     public int getIdhd() {
@@ -49,6 +50,30 @@ public class hoatdong {
 
     public void setIddm(int iddm) {
         this.iddm = iddm;
+    }
+
+    public String getTendm() {
+        return tendm;
+    }
+
+    public void setTendm(String tendm) {
+        this.tendm = tendm;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getPhanloai() {
+        return phanloai;
+    }
+
+    public void setPhanloai(int phanloai) {
+        this.phanloai = phanloai;
     }
 
     public float getSotien() {
@@ -89,29 +114,5 @@ public class hoatdong {
 
     public void setNam(int nam) {
         this.nam = nam;
-    }
-
-    public String getTendm() {
-        return tendm;
-    }
-
-    public void setTendm(String tendm) {
-        this.tendm = tendm;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public int getPhanloai() {
-        return phanloai;
-    }
-
-    public void setPhanloai(int phanloai) {
-        this.phanloai = phanloai;
     }
 }
