@@ -1,14 +1,16 @@
-package com.example.quanlytaichinhcanhan;
+package com.example.quanlytaichinhcanhan.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DangNhap extends AppCompatActivity {
+import com.example.quanlytaichinhcanhan.R;
+
+public class TrangChu1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dang_nhap);
+        setContentView(R.layout.activity_trang_chu1);
     }
 }

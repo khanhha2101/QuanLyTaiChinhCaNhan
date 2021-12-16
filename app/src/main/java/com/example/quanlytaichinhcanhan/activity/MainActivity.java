@@ -1,4 +1,4 @@
-package com.example.quanlytaichinhcanhan;
+package com.example.quanlytaichinhcanhan.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.example.quanlytaichinhcanhan.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {

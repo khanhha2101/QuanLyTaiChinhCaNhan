@@ -1,4 +1,4 @@
-package com.example.quanlytaichinhcanhan;
+package com.example.quanlytaichinhcanhan.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.quanlytaichinhcanhan.R;
 
 public class Start extends AppCompatActivity {
 

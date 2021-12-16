@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    tools:context=".TrangChu">
+    tools:context=".activity.TrangChu">
 
     <RelativeLayout
         android:id="@+id/header_trangchu"
@@ -249,7 +249,8 @@
             android:src="@drawable/nav_add_on"
             app:backgroundTint="#FFC533"
             app:layout_anchor="@id/app_bar"
-            app:maxImageSize="30dp" />
+            app:maxImageSize="30dp"
+            tools:ignore="SpeakableTextPresentCheck" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 

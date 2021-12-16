@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DangNhap">
+    tools:context=".activity.DangNhap">
 
     <!--    <ImageView-->
     <!--        android:layout_width="415dp"-->
@@ -21,7 +21,40 @@
         android:background="@drawable/bg_vang_tron"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"></androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/tv_idnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_taikhoan"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/tv_taikhoan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/tv_matkhau"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_idnd"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></TextView>
+
+        <TextView
+            android:id="@+id/tv_hoten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_idnd"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -68,6 +101,7 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/edt_dangnhap_taikhoan"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edt_trang"
@@ -75,6 +109,7 @@
                 android:minHeight="48dp"></EditText>
 
             <EditText
+                android:id="@+id/edt_dangnhap_matkhau"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -97,6 +132,7 @@
             android:gravity="center">
 
             <Button
+                android:id="@+id/btn_dangnhap"
                 android:layout_width="250dp"
                 android:layout_height="48dp"
                 android:background="@drawable/btn_vang"
