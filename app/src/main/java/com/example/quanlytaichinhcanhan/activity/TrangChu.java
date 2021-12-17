@@ -19,7 +19,9 @@ import com.example.quanlytaichinhcanhan.model.hoatdong;
 import com.example.quanlytaichinhcanhan.model.nguoidung;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,9 +29,10 @@ import retrofit2.Response;
 
 public class TrangChu extends AppCompatActivity {
 
-    TextView txt_name;
+    TextView txt_name, txt_date;
     RecyclerView recyclerview_danhsach;
     HoatDongAdapter hoatDongAdapter;
+    SimpleDateFormat simpleDateFormat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +41,16 @@ public class TrangChu extends AppCompatActivity {
         AnhXa();
 
 //        nhanDuLieu();
+        Calendar calendar = Calendar.getInstance();
+        int ngay = calendar.get(Calendar.DATE);
+        int thang = calendar.get(Calendar.MONTH);
+        int nam = calendar.get(Calendar.YEAR);
+
+        simpleDateFormat = new SimpleDateFormat("E dd-mm-yyyy H:mm:ss");
+        txt_date.setText(simpleDateFormat.format(calendar.getTime()) + "");
 
         bottomNavigation();
-        GetDataRecyclerView();
+        GetDataRecyclerView(ngay, thang, nam);
 
     }
 
@@ -48,6 +58,7 @@ public class TrangChu extends AppCompatActivity {
 
         txt_name = findViewById(R.id.txt_name);
         recyclerview_danhsach = findViewById(R.id.recyclerview_danhsach);
+        txt_date = findViewById(R.id.txt_date);
     }
 
     public void nhanDuLieu() {
@@ -66,7 +77,7 @@ public class TrangChu extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
                 startActivity(intent);
             }
         });
@@ -82,7 +93,7 @@ public class TrangChu extends AppCompatActivity {
         btn_thongke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ThongKe.class);
                 startActivity(intent);
             }
         });
@@ -105,12 +116,18 @@ public class TrangChu extends AppCompatActivity {
 
     }
 
-    public void GetDataRecyclerView() {
+    public void GetDataRecyclerView(int ngay, int thang, int nam) {
         ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
                 ArrayList<hoatdong> list = response.body();
-                LoadDataRecyclerView(list);
+                ArrayList<hoatdong> hoatdongs = new ArrayList<>();
+                for (hoatdong a : list) {
+                    if (a.getNam() == nam && a.getThang() == thang && a.getNgay() == ngay) {
+                        hoatdongs.add(a);
+                    }
+                }
+                LoadDataRecyclerView(hoatdongs);
             }
 
             @Override

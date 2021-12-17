@@ -13,6 +13,9 @@
         android:theme="@style/Theme.QuanLyTaiChinhCaNhan"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.ThongKe"
+            android:exported="false" />
+        <activity
             android:name=".activity.DanhMuc"
             android:exported="false" />
         <activity
@@ -23,7 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.TrangChu"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,9 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.Start"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="false" />

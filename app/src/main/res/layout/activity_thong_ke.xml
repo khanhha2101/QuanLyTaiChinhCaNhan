@@ -4,79 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:background="@color/white">
+    android:layout_centerHorizontal="true">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav">
+        android:layout_height="670dp"
+        android:layout_above="@id/bottom_nav"
+        android:layout_marginBottom="-40dp"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="#FFC533"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:id="@+id/lo_chonthang_lichsu"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/calendar_trang"></ImageView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tháng "
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:id="@+id/tv_thang_lichsu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=", "
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold"></TextView>
-
-                    <TextView
-                        android:id="@+id/tv_nam_lichsu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="2021"
-                        android:textColor="@color/white"
-                        android:textSize="20dp"
-                        android:textStyle="bold"></TextView>
-                </LinearLayout>
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcv_lichsu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"></androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
     </ScrollView>
@@ -86,18 +26,16 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignParentBottom="true">
-
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:largeHeap="true"
             app:backgroundTint="#ffffff"
+            android:id="@+id/app_bar"
             app:fabCradleMargin="8dp"
             app:fabCradleRoundedCornerRadius="50dp"
+            android:largeHeap="true"
             app:fabCradleVerticalOffset="6dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -130,7 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="0.8"
-                        android:src="@drawable/nav_thongke" />
+                        android:src="@drawable/nav_thongke_vang"/>
 
                 </LinearLayout>
 
@@ -160,7 +98,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="0.8"
-                        android:src="@drawable/nav_lichsu_vang" />
+                        android:src="@drawable/nav_lichsu"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -174,7 +112,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="0.8"
-                        android:src="@drawable/nav_caidat" />
+                        android:src="@drawable/nav_caidat"/>
                 </LinearLayout>
             </LinearLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
