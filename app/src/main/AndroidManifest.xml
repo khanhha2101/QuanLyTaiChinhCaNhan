@@ -16,6 +16,9 @@
             android:name=".activity.DanhMuc"
             android:exported="false" />
         <activity
+            android:name=".activity.ThemMoi"
+            android:exported="false" />
+        <activity
             android:name=".activity.LichSu"
             android:exported="false" />
         <activity
@@ -41,6 +44,12 @@
             android:exported="false"></activity>
         <activity
             android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ThongKe"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ChinhSua"
             android:exported="false" />
     </application>
 

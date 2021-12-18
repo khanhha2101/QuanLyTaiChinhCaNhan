@@ -157,7 +157,7 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Intent intent = new Intent(getApplicationContext(), ThemMoi.class);
                 startActivity(intent);
             }
         });
@@ -198,6 +198,8 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
 
     @Override
     public void onItemClick(hoatdong hoatdong) {
-
+//        Intent intent = new Intent(LichSu.this, ChinhSua.class);
+//        intent.putExtra("hoatdong", hoatdong);
+//        startActivity(intent);
     }
 }

@@ -3,31 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/drawable/bg_bong.xml" value="0.2703125" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/drawable/bg_vang_tron.xml" value="0.2703125" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/drawable/btn_vang.xml" value="0.2703125" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/drawable/edt_trang.xml" value="0.2703125" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_cai_dat.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_chinh_sua.xml" value="0.25364583333333335" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_dang_nhap.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_danh_muc.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_lich_su.xml" value="0.2" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_start.xml" value="0.264" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_them_moi.xml" value="0.264" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_thong_ke.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_trang_chu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/activity_trang_chu1.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/holder_trang_chu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/item_danhmuc.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/item_hoatdong.xml" value="0.25416666666666665" />
+        <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/item_lichsu.xml" value="0.264" />
         <entry key="..\:/Nam3/AndroidStudio/AppCuoiKy/app/src/main/res/layout/testmenu.xml" value="0.264" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/drawable/bg_button.xml" value="0.146875" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/drawable/bg_caidat.xml" value="0.20833333333333334" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/drawable/bg_trangchu.xml" value="0.20833333333333334" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/drawable/bg_vang_tron.xml" value="0.20833333333333334" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2203125" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/drawable/line_bottom.xml" value="0.20833333333333334" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_cai_dat.xml" value="0.12771739130434784" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_chinh_sua.xml" value="0.1361111111111111" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_lich_su.xml" value="0.1267361111111111" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_start.xml" value="0.12771739130434784" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_them_moi.xml" value="0.14" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_thong_ke.xml" value="0.1" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_trang_chu.xml" value="0.1" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/activity_trang_chu1.xml" value="0.14" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/holder_trang_chu.xml" value="0.12771739130434784" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/item_hoatdong.xml" value="0.1361111111111111" />
-        <entry key="..\:/QuanLyTaiChinhCaNhan/app/src/main/res/layout/item_lichsu.xml" value="0.1267361111111111" />
       </map>
     </option>
   </component>

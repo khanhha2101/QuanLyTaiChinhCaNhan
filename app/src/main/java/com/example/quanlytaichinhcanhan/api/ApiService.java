@@ -14,6 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
 
@@ -23,7 +24,7 @@ public interface ApiService {
             .create();
 
     ApiService apiservice = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.9:8080/")
+            .baseUrl("http://192.168.1.3:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
@@ -36,5 +37,14 @@ public interface ApiService {
 
     @GET("hoatdong/list")
     Call<ArrayList<hoatdong>> getHoatDongs();
+
+    @POST("hoatdong/add")
+    Call<hoatdong> setHoatDongs(@Body hoatdong hoatdong);
+
+    @POST("hoatdong/update/{id}")
+    Call<hoatdong> editHoatDong(@Body hoatdong hoatdong, @Path("id") int id);
+
+    @POST("hoatdong/delete/{id}")
+    Call<hoatdong> xoaHoatDong(@Path("id") int id);
 
 }

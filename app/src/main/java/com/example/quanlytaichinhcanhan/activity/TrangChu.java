@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,11 +37,13 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         setContentView(R.layout.activity_trang_chu);
 
         AnhXa();
+        bottomNavigation();
 
 //        nhanDuLieu();
 
-        bottomNavigation();
         GetDataRecyclerView();
+
+
 
     }
 
@@ -66,7 +69,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ThemMoi.class);
                 startActivity(intent);
             }
         });
@@ -82,7 +85,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         btn_thongke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ThongKe.class);
                 startActivity(intent);
             }
         });
@@ -115,6 +118,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
             @Override
             public void onFailure(Call<ArrayList<hoatdong>> call, Throwable t) {
+                Toast.makeText(TrangChu.this, "That bai", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -123,7 +127,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
     public void LoadDataRecyclerView(ArrayList<hoatdong> list) {
 
-        hoatDongAdapter = new HoatDongAdapter(this, (HoatDongAdapter.HoatDongClickItem) this);
+        hoatDongAdapter = new HoatDongAdapter(this, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         hoatDongAdapter.setData(list);
         recyclerview_danhsach.setLayoutManager(linearLayoutManager);
@@ -133,5 +137,8 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
     @Override
     public void onItemClick(hoatdong hoatdong) {
 
+        Intent intent = new Intent(TrangChu.this, ChinhSua.class);
+        intent.putExtra("hoatdong", hoatdong);
+        startActivity(intent);
     }
 }

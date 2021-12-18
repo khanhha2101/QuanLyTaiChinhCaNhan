@@ -31,7 +31,7 @@ public class ThongKe extends AppCompatActivity {
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TrangChu.class);
+                Intent intent = new Intent(getApplicationContext(), ThemMoi.class);
                 startActivity(intent);
             }
         });
