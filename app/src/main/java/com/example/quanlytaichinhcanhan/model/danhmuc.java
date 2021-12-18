@@ -1,6 +1,8 @@
 package com.example.quanlytaichinhcanhan.model;
 
-public class danhmuc {
+import java.io.Serializable;
+
+public class danhmuc implements Serializable {
     private int iddm;
     private String tendm, image;
     private int phanloai;

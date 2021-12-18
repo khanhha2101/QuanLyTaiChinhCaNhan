@@ -1,6 +1,8 @@
 package com.example.quanlytaichinhcanhan.model;
 
-public class hoatdong {
+import java.io.Serializable;
+
+public class hoatdong implements Serializable {
     private int idhd;
     private int idnd;
     private int iddm;

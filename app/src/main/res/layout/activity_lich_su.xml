@@ -36,6 +36,7 @@
                         android:src="@drawable/calendar_trang"></ImageView>
 
                     <TextView
+                        android:id="@+id/tv_test"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tháng "
@@ -75,8 +76,8 @@
                 android:id="@+id/rcv_lichsu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"></androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
     </ScrollView>

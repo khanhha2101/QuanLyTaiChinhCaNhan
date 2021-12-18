@@ -25,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TrangChu extends AppCompatActivity {
+public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatDongClickItem {
 
     TextView txt_name;
     RecyclerView recyclerview_danhsach;
@@ -123,10 +123,15 @@ public class TrangChu extends AppCompatActivity {
 
     public void LoadDataRecyclerView(ArrayList<hoatdong> list) {
 
-        hoatDongAdapter = new HoatDongAdapter(this);
+        hoatDongAdapter = new HoatDongAdapter(this, (HoatDongAdapter.HoatDongClickItem) this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         hoatDongAdapter.setData(list);
         recyclerview_danhsach.setLayoutManager(linearLayoutManager);
         recyclerview_danhsach.setAdapter(hoatDongAdapter);
+    }
+
+    @Override
+    public void onItemClick(hoatdong hoatdong) {
+
     }
 }

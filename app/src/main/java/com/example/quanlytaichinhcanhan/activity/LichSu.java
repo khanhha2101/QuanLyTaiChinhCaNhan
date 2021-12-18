@@ -5,19 +5,23 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.adapter.ChiTietLichSuAdapter;
+import com.example.quanlytaichinhcanhan.adapter.HoatDongAdapter;
 import com.example.quanlytaichinhcanhan.api.ApiService;
 import com.example.quanlytaichinhcanhan.model.hoatdong;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LichSu extends AppCompatActivity {
+public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDongClickItem {
 
     TextView tv_thang_lichsu, tv_nam_lichsu;
     RecyclerView rcv_lichsu;
@@ -43,6 +47,7 @@ public class LichSu extends AppCompatActivity {
         setContentView(R.layout.activity_lich_su);
 
         AnhXa();
+
 
         //set tháng năm
         Calendar calendar2 = Calendar.getInstance();
@@ -71,6 +76,8 @@ public class LichSu extends AppCompatActivity {
         tv_nam_lichsu = findViewById(R.id.tv_nam_lichsu);
         lo_chonthang_lichsu = findViewById(R.id.lo_chonthang_lichsu);
     }
+
+
 
     public void getDataFromCSDL(int thang, int nam) {
 
@@ -186,6 +193,11 @@ public class LichSu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+    }
+
+    @Override
+    public void onItemClick(hoatdong hoatdong) {
 
     }
 }
