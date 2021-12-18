@@ -1,6 +1,7 @@
 package com.example.quanlytaichinhcanhan.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.example.quanlytaichinhcanhan.model.danhmuc;
 import com.example.quanlytaichinhcanhan.model.hoatdong;
 import com.ramotion.foldingcell.FoldingCell;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -47,12 +49,14 @@ public class ChiTietLichSuAdapter extends RecyclerView.Adapter<ChiTietLichSuAdap
         int ngay = listCon.get(position);
 
         holder.tv_ngay_itemls.setText(ngay+"");
+        holder.tv_tongchi_lichsu.setText(currencyFormat(TongChiMang(mlist, ngay))+"");
+        holder.tv_tongthu_lichsu.setText(currencyFormat(TongthuMang(mlist, ngay))+"");
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.VERTICAL, false);
         holder.rcv_itemls.setLayoutManager(linearLayoutManager);
         holder.rcv_itemls.setFocusable(false);
 
-        HoatDongAdapter hoatDongAdapter = new HoatDongAdapter(context);
+        HoatDongAdapter hoatDongAdapter = new HoatDongAdapter(context, (HoatDongAdapter.HoatDongClickItem) context);
         hoatDongAdapter.setData(getListByNgay(mlist, ngay));
 
         holder.rcv_itemls.setAdapter(hoatDongAdapter);
@@ -74,12 +78,14 @@ public class ChiTietLichSuAdapter extends RecyclerView.Adapter<ChiTietLichSuAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView tv_ngay_itemls;
+        private TextView tv_ngay_itemls, tv_tongthu_lichsu, tv_tongchi_lichsu;
         private RecyclerView rcv_itemls;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tv_ngay_itemls = itemView.findViewById(R.id.tv_ngay_itemls);
+            tv_tongthu_lichsu = itemView.findViewById(R.id.tv_tongthu_lichsu);
+            tv_tongchi_lichsu = itemView.findViewById(R.id.tv_tongchi_lichsu);
 
             rcv_itemls = itemView.findViewById(R.id.rcv_itemls);
         }
@@ -129,5 +135,11 @@ public class ChiTietLichSuAdapter extends RecyclerView.Adapter<ChiTietLichSuAdap
             }
         }
         return a;
+    }
+
+    //format tiền
+    public static String currencyFormat(float amount) {
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format((amount));
     }
 }
