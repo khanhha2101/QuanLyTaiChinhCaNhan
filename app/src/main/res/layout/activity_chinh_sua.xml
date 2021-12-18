@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ChinhSua">
+
+    <RelativeLayout
+        android:id="@+id/header_them"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:background="@color/orange">
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_back"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="25dp"
+            tools:ignore="VectorDrawableCompat"/>
+        <TextView
+            android:id="@+id/txt_themmoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"
+            android:text="Thêm mới"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body_them"
+        android:layout_width="match_parent"
+        android:layout_height="647dp"
+        android:layout_below="@+id/header_them">
+
+        <RelativeLayout
+            android:id="@+id/money"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="40dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:id="@+id/img_dola"
+                android:layout_width="73dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/dola" />
+
+            <EditText
+                android:id="@+id/nhaptien"
+                android:layout_width="306dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/line_bottom"
+                android:paddingLeft="150dp"
+                android:text="12.000"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/phanloai"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/money"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <ImageView
+                android:id="@+id/img_phanloai"
+                android:layout_width="73dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/phanloai" />
+
+            <RelativeLayout
+                android:id="@+id/nhapphanloai"
+                android:layout_width="272dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="75dp">
+
+                <EditText
+                    android:id="@+id/edt_phanloai"
+                    android:layout_width="229dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/line_bottom"
+                    android:text="Thực phẩm"
+                    android:paddingLeft="10dp"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:id="@+id/img_chonphanloai"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/choose" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/thoigian"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/phanloai"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <ImageView
+                android:id="@+id/img_thoigian"
+                android:layout_width="73dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/thoigian"/>
+
+            <RelativeLayout
+                android:id="@+id/nhapthoigian"
+                android:layout_width="306dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="75dp">
+
+                <EditText
+                    android:id="@+id/edt_thoigian"
+                    android:layout_width="231dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/line_bottom"
+                    android:text="14/12/2021"
+                    android:paddingLeft="10dp"
+                    android:textSize="20dp" />
+                <ImageView
+                    android:id="@+id/img_chonthoigian"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/choose"/>
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ghichu"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@id/thoigian"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+            <ImageView
+                android:id="@+id/img_ghichu"
+                android:layout_width="73dp"
+                android:layout_height="59dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ghichu"/>
+            <EditText
+                android:id="@+id/edt_ghichu"
+                android:layout_width="306dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="75dp"
+                android:background="@drawable/line_bottom"
+                android:hint="Ghi chú"
+                android:paddingLeft="10dp"
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+        <Button
+            android:id="@+id/btn_sua"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ghichu"
+            android:layout_marginTop="50dp"
+            android:text="Sửa"
+            android:layout_marginLeft="70dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/bg_button" />
+        <Button
+            android:id="@+id/btn_xoa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ghichu"
+            android:layout_marginTop="50dp"
+            android:text="Xóa"
+            android:background="@drawable/bg_button"
+            android:layout_marginRight="70dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

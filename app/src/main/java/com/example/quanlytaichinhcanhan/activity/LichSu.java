@@ -36,6 +36,7 @@ public class LichSu extends AppCompatActivity {
     ArrayList<Integer> listNgay;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

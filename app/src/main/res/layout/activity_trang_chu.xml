@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
+    android:background="@color/white"
     tools:context=".activity.TrangChu">
 
     <RelativeLayout
@@ -121,6 +122,7 @@
         android:layout_width="match_parent"
         android:layout_height="345dp"
         android:layout_above="@+id/bottom_nav"
+        android:background="@color/white"
         android:layout_below="@+id/cartview">
 
         <TextView

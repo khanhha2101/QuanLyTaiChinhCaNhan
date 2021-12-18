@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
+    android:background="@color/white"
     tools:context=".activity.TrangChu1">
 
     <RelativeLayout
@@ -121,6 +122,7 @@
         android:layout_width="match_parent"
         android:layout_height="345dp"
         android:layout_above="@+id/bottom_nav"
+        android:background="@color/white"
         android:layout_below="@+id/cartview">
 
         <TextView
@@ -138,15 +140,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_now"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="90dp"
             android:src="@drawable/remove" />
+
         <TextView
             android:id="@+id/txt_thongbao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Hôm nay bạn chưa thêm dữ liệu"
+            android:layout_below="@+id/img_rong"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/img_rong"/>
+            android:hint="Hôm nay bạn chưa thêm dữ liệu" />
     </RelativeLayout>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottom_nav"

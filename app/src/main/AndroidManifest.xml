@@ -13,9 +13,6 @@
         android:theme="@style/Theme.QuanLyTaiChinhCaNhan"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.ThongKe"
-            android:exported="false" />
-        <activity
             android:name=".activity.DanhMuc"
             android:exported="false" />
         <activity
