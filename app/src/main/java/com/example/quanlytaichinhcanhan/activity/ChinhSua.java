@@ -1,6 +1,8 @@
 package com.example.quanlytaichinhcanhan.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -60,24 +62,42 @@ public class ChinhSua extends AppCompatActivity {
         btn_xoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int id = hoatdong.getIdhd();
-                ApiService.apiservice.xoaHoatDong(id).enqueue(new Callback<com.example.quanlytaichinhcanhan.model.hoatdong>() {
-                    @Override
-                    public void onResponse(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Response<com.example.quanlytaichinhcanhan.model.hoatdong> response) {
-                        Toast.makeText(ChinhSua.this, "Thao tác thành công!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ChinhSua.this, TrangChu.class);
-                        startActivity(intent);
-                        finish();
-                    }
+                AlertDialog.Builder alert = new AlertDialog.Builder(ChinhSua.this);
+                alert.setTitle("Thông báo!");
+                alert.setMessage("Bạn có muốn xoá không?");
 
+                alert.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onFailure(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Throwable t) {
-                        Toast.makeText(ChinhSua.this, "Thao tác thành công!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(ChinhSua.this, TrangChu.class);
-                        startActivity(intent);
-                        finish();
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        int id = hoatdong.getIdhd();
+                        ApiService.apiservice.xoaHoatDong(id).enqueue(new Callback<com.example.quanlytaichinhcanhan.model.hoatdong>() {
+                            @Override
+                            public void onResponse(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Response<com.example.quanlytaichinhcanhan.model.hoatdong> response) {
+                                Toast.makeText(ChinhSua.this, "Thao tác thành công!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ChinhSua.this, TrangChu.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+                            @Override
+                            public void onFailure(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Throwable t) {
+                                Toast.makeText(ChinhSua.this, "Thao tác thành công!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ChinhSua.this, TrangChu.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
                     }
                 });
+                alert.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                alert.show();
             }
         });
 
@@ -96,11 +116,11 @@ public class ChinhSua extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Response<com.example.quanlytaichinhcanhan.model.hoatdong> response) {
                             Toast.makeText(ChinhSua.this, "Thao tác thành công!", Toast.LENGTH_SHORT).show();
-                            if(response.isSuccessful()){
+
                                 Intent intent = new Intent(ChinhSua.this, TrangChu.class);
                                 startActivity(intent);
                                 finish();
-                            }
+
 
                         }
 

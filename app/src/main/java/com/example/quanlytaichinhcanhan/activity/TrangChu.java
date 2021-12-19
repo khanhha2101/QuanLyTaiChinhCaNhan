@@ -20,7 +20,11 @@ import com.example.quanlytaichinhcanhan.model.hoatdong;
 import com.example.quanlytaichinhcanhan.model.nguoidung;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,9 +32,13 @@ import retrofit2.Response;
 
 public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatDongClickItem {
 
-    TextView txt_name;
+
+    static TextView txt_chitieu, txt_thunhap, txt_sodu;
+    TextView txt_name, txt_date;
     RecyclerView recyclerview_danhsach;
     HoatDongAdapter hoatDongAdapter;
+    static nguoidung nguoidung;
+    static float tongChiThang = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +47,17 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         AnhXa();
         bottomNavigation();
 
+        //set tháng năm
+        Calendar calendar = Calendar.getInstance();
+        int ngay = calendar.get(Calendar.DATE);
+        int thang = calendar.get(Calendar.MONTH);
+        int nam = calendar.get(Calendar.YEAR);
+
+        setDate();
+
 //        nhanDuLieu();
 
-        GetDataRecyclerView();
+        GetDataRecyclerView(thang+1, nam);
 
 
 
@@ -51,11 +67,22 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
         txt_name = findViewById(R.id.txt_name);
         recyclerview_danhsach = findViewById(R.id.recyclerview_danhsach);
+        txt_date = findViewById(R.id.txt_date);
+        txt_chitieu = findViewById(R.id.txt_chitieu);
+        txt_thunhap = findViewById(R.id.txt_thunhap);
+        txt_sodu = findViewById(R.id.txt_sodu);
+    }
+
+    public void setDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+        Date d = new Date();
+        String dayOfTheWeek = sdf.format(d);
+        txt_date.setText(dayOfTheWeek);
     }
 
     public void nhanDuLieu() {
         Intent intent = getIntent();
-        nguoidung nguoidung = (com.example.quanlytaichinhcanhan.model.nguoidung) intent.getSerializableExtra("nguoidung");
+        nguoidung = (com.example.quanlytaichinhcanhan.model.nguoidung) intent.getSerializableExtra("nguoidung");
         txt_name.setText(nguoidung.getHoten());
     }
 
@@ -108,12 +135,14 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
     }
 
-    public void GetDataRecyclerView() {
+    public void GetDataRecyclerView(int thang, int nam) {
         ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
                 ArrayList<hoatdong> list = response.body();
                 LoadDataRecyclerView(list);
+
+                tongThuChitheoThang(list, thang, nam);
             }
 
             @Override
@@ -134,11 +163,41 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         recyclerview_danhsach.setAdapter(hoatDongAdapter);
     }
 
+    public void tongThuChitheoThang(ArrayList<hoatdong> list, int thang, int nam) {
+        float chi=0, thu=0, tongchi=0, tongthu=0;
+        for (hoatdong a:list ) {
+
+            if(a.getPhanloai()==1){
+                tongchi += a.getSotien();
+            } else {
+                tongthu += a.getSotien();
+            }
+
+            if (a.getThang() == thang && a.getNam() == nam){
+                if(a.getPhanloai() == 1){
+                    chi += a.getSotien();
+                } else {
+                    thu += a.getSotien();
+                }
+            }
+        }
+        txt_chitieu.setText(currencyFormat(chi));
+        txt_thunhap.setText(currencyFormat(thu));
+        txt_sodu.setText(currencyFormat(tongthu-tongchi));
+        tongChiThang = chi;
+    }
+
+
     @Override
     public void onItemClick(hoatdong hoatdong) {
 
         Intent intent = new Intent(TrangChu.this, ChinhSua.class);
         intent.putExtra("hoatdong", hoatdong);
         startActivity(intent);
+    }
+
+    public static String currencyFormat(float amount) {
+        DecimalFormat formatter = new DecimalFormat("###,###,###");
+        return formatter.format((amount));
     }
 }

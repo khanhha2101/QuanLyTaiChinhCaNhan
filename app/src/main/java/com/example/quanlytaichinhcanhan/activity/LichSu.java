@@ -39,8 +39,6 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
     ArrayList<hoatdong> list;
     ArrayList<Integer> listNgay;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,20 +86,20 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
                 list = new ArrayList<>();
                 listNgay = new ArrayList<>();
 
-                for (hoatdong hd: listdata ) {
-                    if (hd.getThang() == thang && hd.getNam() == nam) {
-                        list.add(hd);
-                        if (listNgay.size() == 0){
-                            listNgay.add(hd.getNgay());
-                        } else {
-                            for (int n:listNgay) {
-                                if (n != hd.getNgay()) {
-                                    listNgay.add(hd.getNgay());
-                                }
-                            }
-                        }
-                    }
-                }
+//                for (hoatdong hd: listdata ) {
+//                    if (hd.getThang() == thang && hd.getNam() == nam) {
+//                        list.add(hd);
+//                        if (listNgay.size() == 0){
+//                            listNgay.add(hd.getNgay());
+//                        } else {
+//                            for (int n:listNgay) {
+//                                if (n != hd.getNgay()) {
+//                                    listNgay.add(hd.getNgay());
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
 
                 loadDataToRecyclerView(list, listNgay);
             }

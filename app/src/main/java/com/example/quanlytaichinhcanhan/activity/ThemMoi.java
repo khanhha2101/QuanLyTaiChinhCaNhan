@@ -1,6 +1,8 @@
 package com.example.quanlytaichinhcanhan.activity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -101,22 +103,55 @@ public class ThemMoi extends AppCompatActivity {
         danhmuc danhmuc = new danhmuc(4, "Mua sắm", "ldm_2", 1);
 
         if( sotien == 0 && dd == 0){
-            Toast.makeText(ThemMoi.this, "Mời nhập dữ liệu", Toast.LENGTH_SHORT);
+            Toast.makeText(ThemMoi.this, "Mời nhập dữ liệu!", Toast.LENGTH_SHORT).show();
         } else {
             hoatdong hoatdong = new hoatdong(0,1, danhmuc.getIddm(), danhmuc.getTendm(), danhmuc.getImage(), danhmuc.getPhanloai(), sotien, ghichu, dd, mm, yy);
-            ApiService.apiservice.setHoatDongs(hoatdong).enqueue(new Callback<com.example.quanlytaichinhcanhan.model.hoatdong>() {
-                @Override
-                public void onResponse(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Response<com.example.quanlytaichinhcanhan.model.hoatdong> response) {
-                    Toast.makeText(ThemMoi.this, "Thêm thành công", Toast.LENGTH_SHORT);
-                    Intent intent = new Intent(ThemMoi.this, TrangChu.class);
-                    startActivity(intent);
-                }
+//
+//            float c = TrangChu.tongChiThang + sotien;
+////                Toast.makeText(ThemMoi.this, c + "", Toast.LENGTH_SHORT).show();
+//            if(c > CaiDat.hanmuctoida) {
+//
+////                    Toast.makeText(ThemMoi.this, "Vượt hạn mức!", Toast.LENGTH_SHORT).show();
+//                    AlertDialog.Builder alert = new AlertDialog.Builder(ThemMoi.this);
+//                    alert.setTitle("Thông báo!");
+//                    alert.setMessage("Chi tiêu vượt hạn mức cho phép, bạn có muốn tiếp tục?");
+//
+//                    alert.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            themHoatDong(hoatdong);
+//                        }
+//                    });
+//                    alert.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                        }
+//                    });
+//                }
+//            else {
+                themHoatDong(hoatdong);
+//            }
 
-                @Override
-                public void onFailure(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Throwable t) {
-                    Toast.makeText(ThemMoi.this, "Thêm thất bại", Toast.LENGTH_SHORT);
-                }
-            });
         }
+    }
+
+    public void themHoatDong(hoatdong hoatdong){
+
+        ApiService.apiservice.setHoatDongs(hoatdong).enqueue(new Callback<com.example.quanlytaichinhcanhan.model.hoatdong>() {
+            @Override
+            public void onResponse(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Response<com.example.quanlytaichinhcanhan.model.hoatdong> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Throwable t) {
+                Toast.makeText(ThemMoi.this, "Thêm thất bại", Toast.LENGTH_SHORT);
+            }
+        });
+
+        Toast.makeText(ThemMoi.this, "Thêm thành công", Toast.LENGTH_SHORT);
+        Intent intent = new Intent(ThemMoi.this, TrangChu.class);
+        startActivity(intent);
     }
 }

@@ -24,7 +24,7 @@ public interface ApiService {
             .create();
 
     ApiService apiservice = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.3:8080/")
+            .baseUrl("http://192.168.23.1:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
@@ -38,6 +38,7 @@ public interface ApiService {
     @GET("hoatdong/list")
     Call<ArrayList<hoatdong>> getHoatDongs();
 
+    //thêm sửa xoá hoạt động
     @POST("hoatdong/add")
     Call<hoatdong> setHoatDongs(@Body hoatdong hoatdong);
 
@@ -47,4 +48,23 @@ public interface ApiService {
     @POST("hoatdong/delete/{id}")
     Call<hoatdong> xoaHoatDong(@Path("id") int id);
 
+    //thêm sửa xoá danh mục
+    @POST("hoatdong/add")
+    Call<hoatdong> addDanhmuc(@Body danhmuc danhmuc);
+
+    @POST("hoatdong/update/{id}")
+    Call<hoatdong> editDanhmuc(@Body danhmuc danhmuc, @Path("id") int id);
+
+    @POST("hoatdong/delete/{id}")
+    Call<hoatdong> xoaDanhmuc(@Path("id") int id);
+
+    //thêm sửa xoá người dùng
+    @POST("hoatdong/add")
+    Call<hoatdong> addNguoidung(@Body nguoidung nguoidung);
+
+    @POST("hoatdong/update/{id}")
+    Call<hoatdong> editNguoidung(@Body nguoidung nguoidung, @Path("id") int id);
+
+    @POST("hoatdong/delete/{id}")
+    Call<hoatdong> xoaNguoidung(@Path("id") int id);
 }

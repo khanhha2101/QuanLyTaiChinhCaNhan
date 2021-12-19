@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:background="@color/white"
     tools:context=".activity.TrangChu">
 
     <RelativeLayout
         android:id="@+id/header_trangchu"
         android:layout_width="match_parent"
-        android:layout_height="224dp"
+        android:layout_height="220dp"
         android:background="@color/orange"
         android:paddingBottom="50dp">
 
@@ -58,10 +57,10 @@
     <RelativeLayout
         android:id="@+id/cartview"
         android:layout_width="393dp"
-        android:layout_height="110dp"
+        android:layout_height="120dp"
         android:layout_below="@+id/header_trangchu"
         android:layout_centerInParent="true"
-        android:layout_marginTop="-60dp"
+        android:layout_marginTop="-70dp"
         android:background="@drawable/bg_trangchu">
 
         <ImageView
@@ -69,7 +68,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/calendar" />
 
         <TextView
@@ -77,43 +76,59 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="Thứ 3, 14 tháng 12 năm 2021" />
 
-        <TextView
-            android:id="@+id/txt_sodu"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            android:text="500.000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginTop="50dp">
+            <TextView
+                android:id="@+id/txt_sodu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500.000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_donvi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="VND"
+                android:textSize="11dp" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/txt_donvi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="55dp"
-            android:text="VND"
-            android:textSize="11dp" />
-
-        <TextView
-            android:id="@+id/txt_chitieu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="85dp"
-            android:text="Chi tiêu: 650.000" />
+            android:text="Chi tiêu:" />
+        <TextView
+            android:id="@+id/txt_chitieu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="85dp"
+            android:text="650.000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="85dp"
+            android:text="Thu nhập: " />
 
         <TextView
             android:id="@+id/txt_thunhap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="270dp"
             android:layout_marginTop="85dp"
-            android:text="Thu nhập: 1.050.000" />
+            android:text="1.050.000" />
 
     </RelativeLayout>
 
@@ -122,7 +137,6 @@
         android:layout_width="match_parent"
         android:layout_height="345dp"
         android:layout_above="@+id/bottom_nav"
-        android:background="@color/white"
         android:layout_below="@+id/cartview">
 
         <TextView
