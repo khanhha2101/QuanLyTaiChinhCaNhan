@@ -82,13 +82,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đăng nhập"
+                android:text="Đăng ký"
                 android:textColor="@color/white"
                 android:textSize="48dp"></TextView>
         </LinearLayout>
@@ -96,20 +96,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.9"
             android:gravity="center"
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/edt_dangnhap_taikhoan"
+                android:id="@+id/edt_dangky_hoten"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
+                android:background="@drawable/edt_trang"
+                android:hint="Họ tên"
+                android:minHeight="48dp"></EditText>
+
+            <EditText
+                android:id="@+id/edt_dangky_taikhoan"
+                android:layout_width="320dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/edt_trang"
                 android:hint="Tên đăng nhập"
                 android:minHeight="48dp"></EditText>
 
             <EditText
-                android:id="@+id/edt_dangnhap_matkhau"
+                android:id="@+id/edt_dangky_matkhau"
                 android:layout_width="320dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -123,7 +132,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"></LinearLayout>
+            android:layout_weight="0.3"></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -133,20 +142,20 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_dangnhap"
+                android:id="@+id/btn_dangky"
                 android:layout_width="250dp"
                 android:layout_height="48dp"
                 android:background="@drawable/btn_vang"
-                android:text="Đăng nhập"
+                android:text="Tạo tài khoản"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="24dp"></Button>
             <TextView
-                android:id="@+id/tv_dangky"
+                android:id="@+id/tv_dangnhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Đăng ký"></TextView>
+                android:text="Đăng nhập"></TextView>
         </LinearLayout>
 
 

@@ -107,11 +107,12 @@ public class ChinhSua extends AppCompatActivity {
                 float sotien = Float.parseFloat(nhaptien_sua.getText().toString());
                 String ghichu = edt_ghichu_sua.getText().toString();
                 danhmuc danhmuc = new danhmuc(4, "Mua sắm", "ldm_2", 1);
+                int idnd = TrangChu.nguoidung.getIdnd();
 
                 if( sotien == 0 && dd == 0){
                     Toast.makeText(ChinhSua.this, "Mời nhập dữ liệu", Toast.LENGTH_SHORT);
                 } else {
-                    hoatdong hoatdong2 = new hoatdong(hoatdong.getIdhd(),1, danhmuc.getIddm(), danhmuc.getTendm(), danhmuc.getImage(), danhmuc.getPhanloai(), sotien, ghichu, dd, mm, yy);
+                    hoatdong hoatdong2 = new hoatdong(hoatdong.getIdhd(),idnd, danhmuc.getIddm(), danhmuc.getTendm(), danhmuc.getImage(), danhmuc.getPhanloai(), sotien, ghichu, dd, mm, yy);
                     ApiService.apiservice.editHoatDong(hoatdong2, hoatdong2.getIdhd()).enqueue(new Callback<com.example.quanlytaichinhcanhan.model.hoatdong>() {
                         @Override
                         public void onResponse(Call<com.example.quanlytaichinhcanhan.model.hoatdong> call, Response<com.example.quanlytaichinhcanhan.model.hoatdong> response) {

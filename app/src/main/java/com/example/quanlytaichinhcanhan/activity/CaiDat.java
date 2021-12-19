@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CaiDat extends AppCompatActivity {
 
-    TextView txt_danhmuc_caidat, tv_hanmuc;
+    TextView txt_danhmuc_caidat, tv_hanmuc, txt_name;
     static float hanmuctoida = 2000000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class CaiDat extends AppCompatActivity {
 
         AnhXa();
 
-
+        txt_name.setText(TrangChu.nguoidung.getHoten());
 
         txt_danhmuc_caidat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +50,7 @@ public class CaiDat extends AppCompatActivity {
     public void AnhXa() {
         txt_danhmuc_caidat = findViewById(R.id.txt_danhmuc_caidat);
         tv_hanmuc = findViewById(R.id.tv_hanmuc);
+        txt_name = findViewById(R.id.txt_name);
     }
 
     private void DiaLogHanmuc(){

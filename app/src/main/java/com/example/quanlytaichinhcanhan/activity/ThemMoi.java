@@ -101,11 +101,12 @@ public class ThemMoi extends AppCompatActivity {
         float sotien = Float.parseFloat(nhaptien.getText().toString());
         String ghichu = edt_ghichu.getText().toString();
         danhmuc danhmuc = new danhmuc(4, "Mua sắm", "ldm_2", 1);
+        int idnd = TrangChu.nguoidung.getIdnd();
 
         if( sotien == 0 && dd == 0){
             Toast.makeText(ThemMoi.this, "Mời nhập dữ liệu!", Toast.LENGTH_SHORT).show();
         } else {
-            hoatdong hoatdong = new hoatdong(0,1, danhmuc.getIddm(), danhmuc.getTendm(), danhmuc.getImage(), danhmuc.getPhanloai(), sotien, ghichu, dd, mm, yy);
+            hoatdong hoatdong = new hoatdong(0,idnd, danhmuc.getIddm(), danhmuc.getTendm(), danhmuc.getImage(), danhmuc.getPhanloai(), sotien, ghichu, dd, mm, yy);
 //
 //            float c = TrangChu.tongChiThang + sotien;
 ////                Toast.makeText(ThemMoi.this, c + "", Toast.LENGTH_SHORT).show();

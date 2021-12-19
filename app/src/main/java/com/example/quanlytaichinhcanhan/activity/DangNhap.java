@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quanlytaichinhcanhan.DangKy;
 import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.api.ApiService;
 import com.example.quanlytaichinhcanhan.model.nguoidung;
@@ -23,6 +24,7 @@ import retrofit2.Response;
 public class DangNhap extends AppCompatActivity {
 
     EditText edt_taikhoan, edt_matkhau;
+    TextView tv_dangky;
     Button btn_dangnhap;
     ArrayList<nguoidung> nguoidungs;
 
@@ -36,7 +38,49 @@ public class DangNhap extends AppCompatActivity {
         btn_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getDuLieuNguoiDung();
+                if (nguoidungs == null) {
+                    nguoidungs = new ArrayList<>();
+                    ApiService.apiservice.getNguoiDungs().enqueue(new Callback<ArrayList<nguoidung>>() {
+                        @Override
+                        public void onResponse(Call<ArrayList<nguoidung>> call, Response<ArrayList<nguoidung>> response) {
+
+                            int ktdn = 0;
+                            String taikhoan = edt_taikhoan.getText().toString();
+                            String matkhau = edt_matkhau.getText().toString();
+                            nguoidungs = response.body();
+                            for (nguoidung nguoidung : nguoidungs) {
+                                if (taikhoan.equals(nguoidung.getTaikhoan()) && matkhau.equals(nguoidung.getMatkhau())){
+                                    Toast.makeText(DangNhap.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(DangNhap.this, TrangChu.class);
+                                    intent.putExtra("nguoidung", nguoidung);
+                                    startActivity(intent);
+                                    ktdn = 1;
+                                }
+                            }
+                            if (ktdn == 0) {
+                                Toast.makeText(DangNhap.this, "Tài khoản hoặc mật khẩu sai!", Toast.LENGTH_SHORT).show();
+                                edt_taikhoan.setText("");
+                                edt_matkhau.setText("");
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ArrayList<nguoidung>> call, Throwable t) {
+                            Toast.makeText(DangNhap.this, "Kết nối thất bại", Toast.LENGTH_SHORT).show();
+                        }
+
+                    });
+
+                }
+            }
+        });
+
+        tv_dangky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangNhap.this, DangKy.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -45,6 +89,7 @@ public class DangNhap extends AppCompatActivity {
         edt_taikhoan = findViewById(R.id.edt_dangnhap_taikhoan);
         edt_matkhau = findViewById(R.id.edt_dangnhap_matkhau);
         btn_dangnhap = findViewById(R.id.btn_dangnhap);
+        tv_dangky = findViewById(R.id.tv_dangky);
     }
 
     public void getDuLieuNguoiDung() {
@@ -78,7 +123,9 @@ public class DangNhap extends AppCompatActivity {
                 public void onFailure(Call<ArrayList<nguoidung>> call, Throwable t) {
                     Toast.makeText(DangNhap.this, "Kết nối thất bại", Toast.LENGTH_SHORT).show();
                 }
+
             });
+
         }
 
     }
