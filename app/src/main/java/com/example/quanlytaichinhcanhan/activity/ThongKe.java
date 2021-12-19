@@ -8,10 +8,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.adapter.BieuDoAdapter;
@@ -32,7 +35,7 @@ import retrofit2.Response;
 
 public class ThongKe extends AppCompatActivity {
 
-    TextView tv_tieude, tv_thongke_nam, tv_thongke_thang;
+    TextView tv_thongke_nam, tv_thongke_thang;
     RecyclerView rcv_thongke_bieudo, rcv_thongke_chitiet;
     LinearLayout lo_thongke_chonthang;
     Spinner spn_phanloai;
@@ -40,6 +43,7 @@ public class ThongKe extends AppCompatActivity {
     ChiTietAdapter chiTietAdapter;
     ArrayList<danhmuc> danhmucs = new ArrayList<>();
     ArrayList<hoatdong> hoatdongs = new ArrayList<>();
+    int phanloai = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +60,7 @@ public class ThongKe extends AppCompatActivity {
         tv_thongke_thang.setText((thang + 1) + "");
         tv_thongke_nam.setText(nam + "");
 
-        getDataCSDL(thang+1, nam);
+        getDataCSDL(thang+1, nam, phanloai);
 
         lo_thongke_chonthang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,18 +68,36 @@ public class ThongKe extends AppCompatActivity {
                 chonThang();
             }
         });
+
+        setSpinner();
+
+        spn_phanloai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0)
+                    phanloai = 1;
+                else
+                    phanloai = 0;
+
+                getDataCSDL(thang+1, nam, phanloai);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
     public void AnhXa() {
         rcv_thongke_chitiet = findViewById(R.id.rcv_thongke_chitiet);
         rcv_thongke_bieudo = findViewById(R.id.rcv_thongke_bieudo);
-        tv_tieude = findViewById(R.id.tv_tieude);
         tv_thongke_nam = findViewById(R.id.tv_thongke_nam);
         tv_thongke_thang = findViewById(R.id.tv_thongke_thang);
         lo_thongke_chonthang = findViewById(R.id.lo_thongke_chonthang);
         spn_phanloai = findViewById(R.id.spn_phanloai);
     }
 
-    public void getDataCSDL(int thang, int nam) {
+    public void getDataCSDL(int thang, int nam, int phanloai) {
         ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
@@ -86,7 +108,7 @@ public class ThongKe extends AppCompatActivity {
 
                 for (hoatdong a: list
                 ) {
-                    if (a.getPhanloai()==1 && a.getNam()==nam && a.getThang()==thang){
+                    if (a.getPhanloai()==phanloai && a.getNam()==nam && a.getThang()==thang){
 
                         hoatdongs.add(a);
                         if (danhmucs.size()==0){
@@ -150,7 +172,7 @@ public class ThongKe extends AppCompatActivity {
                 tv_thongke_thang.setText((a+1) + "");
                 tv_thongke_nam.setText((b) + "");
 
-                getDataCSDL(a+1, b);
+                getDataCSDL(a+1, b, phanloai);
 
             }
         }, nam, thang-1, ngay);
@@ -159,7 +181,13 @@ public class ThongKe extends AppCompatActivity {
     }
 
     public void setSpinner() {
+        ArrayList<String> listsp = new ArrayList<>();
+        listsp.add("Chi tiêu");
+        listsp.add("Thu nhập");
 
+        ArrayAdapter adaptersp = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, listsp);
+        adaptersp.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spn_phanloai.setAdapter(adaptersp);
     }
 
     private void bottomNavigation() {

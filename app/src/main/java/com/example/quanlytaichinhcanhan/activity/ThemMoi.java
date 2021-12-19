@@ -6,21 +6,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quanlytaichinhcanhan.R;
+import com.example.quanlytaichinhcanhan.adapter.DanhMucThemAdapter;
+import com.example.quanlytaichinhcanhan.adapter.DanhmucAdapter;
 import com.example.quanlytaichinhcanhan.api.ApiService;
 import com.example.quanlytaichinhcanhan.model.danhmuc;
 import com.example.quanlytaichinhcanhan.model.hoatdong;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import retrofit2.Call;
@@ -29,10 +35,12 @@ import retrofit2.Response;
 
 public class ThemMoi extends AppCompatActivity {
 
-    ImageView img_phanloai;
-    EditText nhaptien, edt_phanloai, edt_thoigian, edt_ghichu;
+    EditText nhaptien, edt_thoigian, edt_ghichu;
     Button btn_them;
     LinearLayout lo_chonngay_them,lo_chonphanloai_them, lo_back_them;
+    Spinner spn_phanloai;
+    DanhMucThemAdapter danhmucAdapter;
+    danhmuc danhmuc;
 
     int dd=0, mm=0, yy=0;
     @Override
@@ -63,18 +71,42 @@ public class ThemMoi extends AppCompatActivity {
             }
         });
 
+        getDanhMucFromCSDL();
+
+        spn_phanloai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ApiService.apiservice.getDanhMucs().enqueue(new Callback<ArrayList<danhmuc>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<danhmuc>> call, Response<ArrayList<danhmuc>> response) {
+                        ArrayList<danhmuc> list = response.body();
+                        danhmuc = list.get(position);
+                    }
+
+                    @Override
+                    public void onFailure(Call<ArrayList<danhmuc>> call, Throwable t) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
     }
 
     public void AnhXa() {
-        img_phanloai = findViewById(R.id.img_phanloai);
         nhaptien = findViewById(R.id.nhaptien);
-        edt_phanloai = findViewById(R.id.edt_phanloai);
         edt_thoigian = findViewById(R.id.edt_thoigian);
         edt_ghichu = findViewById(R.id.edt_ghichu);
         btn_them = findViewById(R.id.btn_them);
         lo_chonphanloai_them = findViewById(R.id.lo_chonphanloai_them);
         lo_chonngay_them = findViewById(R.id.lo_chonngay_them);
         lo_back_them = findViewById(R.id.lo_back_them);
+        spn_phanloai = findViewById(R.id.spn_phanloai);
     }
 
     public void chonThoiGian() {
@@ -100,7 +132,6 @@ public class ThemMoi extends AppCompatActivity {
     public void kiemTraData () {
         float sotien = Float.parseFloat(nhaptien.getText().toString());
         String ghichu = edt_ghichu.getText().toString();
-        danhmuc danhmuc = new danhmuc(4, "Mua sắm", "ldm_2", 1);
         int idnd = TrangChu.nguoidung.getIdnd();
 
         if( sotien == 0 && dd == 0){
@@ -135,6 +166,27 @@ public class ThemMoi extends AppCompatActivity {
 //            }
 
         }
+    }
+
+    public void getDanhMucFromCSDL() {
+        ApiService.apiservice.getDanhMucs().enqueue(new Callback<ArrayList<danhmuc>>() {
+            @Override
+            public void onResponse(Call<ArrayList<danhmuc>> call, Response<ArrayList<danhmuc>> response) {
+                ArrayList<danhmuc> list = response.body();
+                setSpinner(list);
+                danhmuc = list.get(0);
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<danhmuc>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void setSpinner(ArrayList<danhmuc> list) {
+        danhmucAdapter = new DanhMucThemAdapter(this, R.layout.item_danhmuc, list);
+        spn_phanloai.setAdapter(danhmucAdapter);
     }
 
     public void themHoatDong(hoatdong hoatdong){

@@ -53,12 +53,12 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         int thang = calendar.get(Calendar.MONTH);
         int nam = calendar.get(Calendar.YEAR);
 
-        setDate();
+        setDate(ngay, thang, nam);
 
         if (nguoidung == null)
         nhanDuLieu();
 
-        GetDataRecyclerView(thang+1, nam);
+        GetDataRecyclerView(ngay,thang+1, nam);
 
 
 
@@ -74,11 +74,12 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
         txt_sodu = findViewById(R.id.txt_sodu);
     }
 
-    public void setDate() {
+    public void setDate(int ngay, int thang, int nam) {
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
         Date d = new Date();
         String dayOfTheWeek = sdf.format(d);
         txt_date.setText(dayOfTheWeek);
+        txt_date.setText(dayOfTheWeek + " " + ngay+" Tháng "+thang+ " năm "+nam);
     }
 
     public void nhanDuLieu() {
@@ -136,12 +137,19 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
     }
 
-    public void GetDataRecyclerView(int thang, int nam) {
+    public void GetDataRecyclerView(int ngay, int thang, int nam) {
         ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
                 ArrayList<hoatdong> list = response.body();
-                LoadDataRecyclerView(list);
+                ArrayList<hoatdong> hoatdongs = new ArrayList<>();
+                for (hoatdong a: list
+                     ) {
+                    if(a.getNgay() == ngay && a.getThang() == thang && a.getNam() == nam) {
+                        hoatdongs.add(a);
+                    }
+                }
+                LoadDataRecyclerView(hoatdongs);
 
                 tongThuChitheoThang(list, thang, nam);
             }
