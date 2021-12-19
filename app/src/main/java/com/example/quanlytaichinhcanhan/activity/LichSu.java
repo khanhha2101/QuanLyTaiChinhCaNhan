@@ -36,8 +36,8 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
     RecyclerView rcv_lichsu;
     ChiTietLichSuAdapter lichSuAdapter;
     LinearLayout lo_chonthang_lichsu;
-    ArrayList<hoatdong> list;
-    ArrayList<Integer> listNgay;
+    ArrayList<hoatdong> list = new ArrayList<>();
+    ArrayList<Integer> listNgay = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,24 +82,36 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
         ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
-                ArrayList<hoatdong> listdata = response.body();
+                ArrayList<hoatdong> listData = response.body();
                 list = new ArrayList<>();
                 listNgay = new ArrayList<>();
 
-//                for (hoatdong hd: listdata ) {
-//                    if (hd.getThang() == thang && hd.getNam() == nam) {
-//                        list.add(hd);
-//                        if (listNgay.size() == 0){
-//                            listNgay.add(hd.getNgay());
-//                        } else {
-//                            for (int n:listNgay) {
-//                                if (n != hd.getNgay()) {
-//                                    listNgay.add(hd.getNgay());
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
+                for (hoatdong a : listData
+                     ) {
+                    int dd = a.getNgay();
+                    int mm = a.getThang();
+                    int yy = a.getNam();
+                    int kt = 0;
+
+                    if(mm == thang && yy == nam) {
+                        list.add(a);
+
+                        if (listNgay.size() == 0){
+                            listNgay.add(dd);
+                        } else {
+                            for (int n:listNgay
+                                 ) {
+                                if (dd == n){
+                                    kt = 1;
+                                }
+                            }
+
+                            if(kt == 0) {
+                                listNgay.add(dd);
+                            }
+                        }
+                    }
+                }
 
                 loadDataToRecyclerView(list, listNgay);
             }
@@ -109,8 +121,6 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
 
             }
         });
-
-
     }
 
     public void loadDataToRecyclerView(ArrayList<hoatdong> list, ArrayList<Integer> listngay) {
@@ -196,8 +206,8 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
 
     @Override
     public void onItemClick(hoatdong hoatdong) {
-//        Intent intent = new Intent(LichSu.this, ChinhSua.class);
-//        intent.putExtra("hoatdong", hoatdong);
-//        startActivity(intent);
+        Intent intent = new Intent(LichSu.this, ChinhSua.class);
+        intent.putExtra("hoatdong", hoatdong);
+        startActivity(intent);
     }
 }

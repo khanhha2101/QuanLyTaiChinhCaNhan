@@ -99,7 +99,7 @@ public class ChiTietLichSuAdapter extends RecyclerView.Adapter<ChiTietLichSuAdap
         float tongchi = 0;
         for (hoatdong a : list
         ) {
-            if (a.getPhanloai() == 1){
+            if (a.getPhanloai() == 1 && a.getNgay() == ngay){
                 tongchi += a.getSotien();
             }
         }
@@ -111,7 +111,7 @@ public class ChiTietLichSuAdapter extends RecyclerView.Adapter<ChiTietLichSuAdap
         float tongthu = 0;
         for (hoatdong a : list
         ) {
-            if (a.getPhanloai() == 0){
+            if (a.getPhanloai() == 0 & a.getNgay() == ngay){
                 tongthu += a.getSotien();
             }
         }
