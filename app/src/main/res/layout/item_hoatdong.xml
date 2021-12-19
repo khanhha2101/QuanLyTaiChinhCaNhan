@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/img_ldm_hd"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_weight="0.2"
         android:src="@drawable/ldm_16"></ImageView>
     <LinearLayout
@@ -28,13 +28,13 @@
             android:textColor="@color/black"
             android:textStyle="bold"
             android:text="Thực phẩm"
-            android:textSize="16dp"></TextView>
+            android:textSize="14dp"></TextView>
         <TextView
             android:id="@+id/tv_ghichu_hd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ghi chú"
-            android:textSize="16dp"></TextView>
+            android:textSize="14dp"></TextView>
     </LinearLayout>
     <TextView
         android:id="@+id/tv_sotien_hd"
@@ -42,7 +42,6 @@
         android:layout_height="match_parent"
         android:gravity="center|right"
         android:layout_weight="0.8"
-        android:textColor="@color/red"
         android:text="-12,000"></TextView>
 
 </LinearLayout>

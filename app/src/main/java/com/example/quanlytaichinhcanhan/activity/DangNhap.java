@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quanlytaichinhcanhan.DangKy;
 import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.api.ApiService;
 import com.example.quanlytaichinhcanhan.model.nguoidung;

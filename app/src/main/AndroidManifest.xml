@@ -13,7 +13,7 @@
         android:theme="@style/Theme.QuanLyTaiChinhCaNhan"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".DangKy"
+            android:name=".activity.DangKy"
             android:exported="false" />
         <activity
             android:name=".activity.DanhMuc"

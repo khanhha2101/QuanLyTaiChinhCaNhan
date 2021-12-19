@@ -55,6 +55,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
         setDate();
 
+        if (nguoidung == null)
         nhanDuLieu();
 
         GetDataRecyclerView(thang+1, nam);

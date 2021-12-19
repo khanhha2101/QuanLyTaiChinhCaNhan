@@ -1,4 +1,4 @@
-package com.example.quanlytaichinhcanhan;
+package com.example.quanlytaichinhcanhan.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quanlytaichinhcanhan.activity.DangNhap;
+import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.api.ApiService;
 import com.example.quanlytaichinhcanhan.model.hoatdong;
 import com.example.quanlytaichinhcanhan.model.nguoidung;
