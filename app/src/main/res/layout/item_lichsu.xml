@@ -6,14 +6,12 @@
     android:layout_marginRight="5dp"
     android:layout_marginTop="15dp"
     android:orientation="vertical"
-    android:background="@drawable/bg_bong"
     android:clipChildren="false"
     android:clipToPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/vang"
         android:gravity="center">
         <TextView
             android:id="@+id/tv_ngay_itemls"
@@ -22,6 +20,12 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:text="13"></TextView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/black"></View>
     </LinearLayout>
 
     <LinearLayout
@@ -72,12 +76,7 @@
                     android:text="120,000"></TextView>
             </LinearLayout>
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/black"></View>
+
     </LinearLayout>
 
     <LinearLayout

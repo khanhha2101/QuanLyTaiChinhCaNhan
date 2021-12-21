@@ -49,12 +49,18 @@ public class ThemMoi extends AppCompatActivity {
         setContentView(R.layout.activity_them_moi);
 
         AnhXa();
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        edt_thoigian.setText(simpleDateFormat.format(calendar.getTime()));
+
         lo_chonngay_them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 chonThoiGian();
             }
         });
+
         btn_them.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
