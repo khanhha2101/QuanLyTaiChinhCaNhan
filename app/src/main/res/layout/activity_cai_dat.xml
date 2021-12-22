@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CaiDat">
+
+    <RelativeLayout
+        android:id="@+id/header_caidat"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/orange">
+
+        <ImageView
+            android:id="@+id/img_avt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:paddingTop="10dp"
+            android:src="@drawable/avt" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="110dp">
+            <TextView
+                android:id="@+id/txt_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HaMy"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/edit" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/body_caidat"
+        android:layout_width="match_parent"
+        android:layout_height="490dp"
+        android:layout_below="@+id/header_caidat">
+
+        <RelativeLayout
+            android:id="@+id/caidatchung"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/txt_tieude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Cài đặt chung"
+                android:textSize="15dp" />
+
+            <RelativeLayout
+                android:id="@+id/nhacnho"
+                android:layout_width="379dp"
+                android:layout_height="197dp"
+                android:layout_below="@+id/txt_tieude"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_caidat"
+                android:paddingLeft="15dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/txt_nnhn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Nhắc nhở hằng ngày" />
+
+                <RelativeLayout
+                    android:id="@+id/tieude1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txt_nnhn"
+                    android:background="@drawable/line_bottom">
+
+                    <TextView
+                        android:id="@+id/txt_gio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="06:00"
+                        android:textColor="@color/orange" />
+
+                    <ImageView
+                        android:id="@+id/img_onoff"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_marginLeft="290dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/on" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_danhmuc_caidat"
+                    android:layout_width="350dp"
+                    android:layout_height="44dp"
+                    android:layout_below="@+id/tieude1"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/line_bottom"
+                    android:text="Danh mục" />
+
+                <RelativeLayout
+                    android:layout_width="364dp"
+                    android:layout_height="68dp"
+                    android:layout_below="@+id/txt_danhmuc_caidat"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/line_bottom">
+
+                    <TextView
+                        android:id="@+id/tv_hanmuc"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:text="Hạn mức chi tiêu" />
+                    >
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tieude2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caidatchung"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:text="Thông tin ứng dụng" />
+
+        <RelativeLayout
+            android:id="@+id/thongtin"
+            android:layout_width="379dp"
+            android:layout_height="211dp"
+            android:layout_below="@+id/tieude2"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_caidat"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/txt_dieukhoan_caidat"
+                android:layout_width="350dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/line_bottom"
+                android:text="Điều khoản và điều kiện" />
+
+            <TextView
+                android:id="@+id/txt_chinhsach_caidat"
+                android:layout_width="350dp"
+                android:layout_height="44dp"
+                android:layout_below="@+id/txt_dieukhoan_caidat"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/line_bottom"
+                android:text="Chính sách bảo mật" />
+
+            <TextView
+                android:id="@+id/txt_giayphep_caidat"
+                android:layout_width="350dp"
+                android:layout_height="44dp"
+                android:layout_below="@+id/txt_chinhsach_caidat"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/line_bottom"
+                android:text="Giấy phép" />
+
+            <TextView
+                android:id="@+id/txt_doingu_caidat"
+                android:layout_width="350dp"
+                android:layout_height="44dp"
+                android:layout_below="@+id/txt_giayphep_caidat"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/line_bottom"
+                android:text="Đội ngũ phát triển" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:layout_alignParentBottom="true">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:largeHeap="true"
+            app:backgroundTint="#ffffff"
+            app:fabCradleMargin="8dp"
+            app:fabCradleRoundedCornerRadius="50dp"
+            app:fabCradleVerticalOffset="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <LinearLayout
+                    android:id="@+id/btn_home"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/nav_home" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_thongke"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8"
+                        android:src="@drawable/nav_thongke" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/nav_add_on"
+                        tools:ignore="VectorDrawableCompat" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_lichsu"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8"
+                        android:src="@drawable/nav_lichsu" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_caidat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.8"
+                        android:src="@drawable/nav_caidat_vang" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:src="@drawable/nav_add_on"
+            app:backgroundTint="#FFC533"
+            app:layout_anchor="@id/app_bar"
+            app:maxImageSize="30dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginEnd="5dp"
+    android:background="@drawable/bg_trangchu"
+    android:elevation="5dp">
+
+    <ImageView
+        android:id="@+id/img_danhmuc_trangchu"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/cotuc" />
+
+    <TextView
+        android:id="@+id/txt_tendanhmuc_trangchu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="5dp"
+        android:text="Thực phẩm"
+        android:textSize="16dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txt_ghichu_trangchu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ghi chú"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="80dp"/>
+    <TextView
+        android:id="@+id/txt_price_trangchu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-10.000"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="20dp"/>
+
+
+</RelativeLayout>

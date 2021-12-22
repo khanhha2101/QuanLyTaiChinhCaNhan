@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="75dp"
+        android:background="@color/vang"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/hanmuc"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hạn mức chi tiêu"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="-10dp"
+            android:gravity="center"
+            android:text="Thiết lập hạn mức chi tiêu giúp bạn kiểm soát tài chính tốt hơn."
+            android:textColor="@color/black"
+            android:textSize="18dp"></TextView>
+
+        <EditText
+            android:id="@+id/edt_hanmuc"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="50dp"
+            android:hint="Nhập hạn mức mong muốn"
+            android:background="@drawable/edt_hanmuc"
+            tools:ignore="SpeakableTextPresentCheck"></EditText>
+
+        <Button
+            android:id="@+id/luu_hanmuc"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/btn_vang"
+            android:textAllCaps="false"
+            android:text="Xác nhận"></Button>
+    </LinearLayout>
+
+</LinearLayout>

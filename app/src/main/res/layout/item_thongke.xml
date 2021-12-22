@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+    <com.skydoves.progressview.ProgressView
+        android:id="@+id/cot"
+        android:layout_width="40dp"
+        android:layout_height="220dp"
+        app:progressView_orientation="vertical"
+        app:progressView_colorBackground="#EEF0FF"
+        app:progressView_colorProgress="@color/vang"
+        app:progressView_progress="80"
+        app:progressView_min="1"
+        app:progressView_max="100"
+        app:progressView_progressFromPrevious="true"
+        app:progressView_autoAnimate="true"
+        app:progressView_radius="12dp"
+        app:progressView_padding="1dp"
+        app:progressView_labelColorInner="@color/white"
+        app:progressView_labelColorOuter="@color/black"
+        app:progressView_labelSize="10sp"
+        app:progressView_labelSpace="10dp"
+        app:progressView_labelText="achieve 65%"
+        app:progressView_labelTypeface="bold"
+        />
+    </LinearLayout>
+
+</LinearLayout>
