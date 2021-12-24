@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.quanlytaichinhcanhan.R;
 import com.example.quanlytaichinhcanhan.adapter.DanhmucAdapter;
@@ -25,6 +28,7 @@ public class DanhMuc extends AppCompatActivity {
 
     RecyclerView rcv_dm;
     FloatingActionButton btn_add_danhmuc;
+    LinearLayout back_caidat_danhmuc;
     DanhmucAdapter danhmucAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +36,17 @@ public class DanhMuc extends AppCompatActivity {
         setContentView(R.layout.activity_danh_muc);
 
         rcv_dm = findViewById(R.id.rcv_danhmuc);
+        back_caidat_danhmuc = findViewById(R.id.back_caidat_danhmuc);
 
         GetDataRecyclerView();
+
+        back_caidat_danhmuc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DanhMuc.this, CaiDat.class);
+                startActivity(intent);
+            }
+        });
 
         rcv_dm.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
