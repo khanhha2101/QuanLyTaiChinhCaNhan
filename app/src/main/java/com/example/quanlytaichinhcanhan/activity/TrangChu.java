@@ -57,6 +57,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
 
         if (nguoidung == null)
         nhanDuLieu();
+        txt_name.setText(nguoidung.getHoten());
 
         GetDataRecyclerView(ngay,thang+1, nam);
 
@@ -138,7 +139,7 @@ public class TrangChu extends AppCompatActivity implements HoatDongAdapter.HoatD
     }
 
     public void GetDataRecyclerView(int ngay, int thang, int nam) {
-        ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
+        ApiService.apiservice.getHoatDongs(nguoidung.getIdnd()).enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
                 ArrayList<hoatdong> list = response.body();
