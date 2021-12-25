@@ -24,7 +24,7 @@ public interface ApiService {
             .create();
 
     ApiService apiservice = new Retrofit.Builder()
-            .baseUrl("http://192.168.1.14:8080/")
+            .baseUrl("http://192.168.1.3:8080/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
@@ -35,8 +35,10 @@ public interface ApiService {
     @GET("danhmuc/list")
     Call<ArrayList<danhmuc>> getDanhMucs();
 
+    @GET("hoatdong/list/{id}")
+    Call<ArrayList<hoatdong>> getHoatDongs(@Path("id") int id);
     @GET("hoatdong/list")
-    Call<ArrayList<hoatdong>> getHoatDongs();
+    Call<ArrayList<hoatdong>> getHoatDong();
 
     //thêm sửa xoá hoạt động
     @POST("hoatdong/add")

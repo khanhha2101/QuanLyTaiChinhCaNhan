@@ -39,6 +39,8 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
     ArrayList<hoatdong> list = new ArrayList<>();
     ArrayList<Integer> listNgay = new ArrayList<>();
 
+    int thang=0, nam=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +51,8 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
 
         //set tháng năm
         Calendar calendar2 = Calendar.getInstance();
-        int thang = calendar2.get(Calendar.MONTH);
-        int nam = calendar2.get(Calendar.YEAR);
+        thang = calendar2.get(Calendar.MONTH);
+        nam = calendar2.get(Calendar.YEAR);
         tv_thang_lichsu.setText((thang + 1) + "");
         tv_nam_lichsu.setText(nam + "");
 
@@ -79,7 +81,7 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
 
     public void getDataFromCSDL(int thang, int nam) {
 
-        ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
+        ApiService.apiservice.getHoatDongs(TrangChu.nguoidung.getIdnd()).enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
                 ArrayList<hoatdong> listData = response.body();
@@ -146,6 +148,7 @@ public class LichSu extends AppCompatActivity implements HoatDongAdapter.HoatDon
                 int b = calendar.get(Calendar.YEAR);
                 tv_thang_lichsu.setText((a+1) + "");
                 tv_nam_lichsu.setText((b) + "");
+
 
                 getDataFromCSDL(a+1, b);
 

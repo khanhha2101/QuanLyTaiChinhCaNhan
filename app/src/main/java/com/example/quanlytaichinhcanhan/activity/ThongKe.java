@@ -98,7 +98,7 @@ public class ThongKe extends AppCompatActivity {
     }
 
     public void getDataCSDL(int thang, int nam, int phanloai) {
-        ApiService.apiservice.getHoatDongs().enqueue(new Callback<ArrayList<hoatdong>>() {
+        ApiService.apiservice.getHoatDongs(TrangChu.nguoidung.getIdnd()).enqueue(new Callback<ArrayList<hoatdong>>() {
             @Override
             public void onResponse(Call<ArrayList<hoatdong>> call, Response<ArrayList<hoatdong>> response) {
                 ArrayList<hoatdong> list = response.body();
